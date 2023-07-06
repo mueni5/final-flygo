@@ -1,12 +1,18 @@
+import { useContext } from "react";
 import "./Login.css";
-
+import { AuthContext } from "../context/AuthContext";
+import { useState } from "react";
 const Login = () => {
+  const { login } = useContext(AuthContext);
+  const [username, setUserName] = useState();
+  const [password, setPassword] = useState();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login(username, password);
+  };
   return (
     <div className="log-in">
-      <div
-        className="container d-flex justify-content-center align-items-center min-vh-100"
-        style={{}}
-      >
+      <div className="container d-flex justify-content-center align-items-center min-vh-100">
         <div className="row rounded-4 p-3 bg-white shadow box-area">
           <div
             className="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
@@ -22,7 +28,6 @@ const Login = () => {
             </div>
             <p className="text-white fs-2 ">Welcome!</p>
           </div>
-
           <div className="col-md-6 right-box">
             <div className="row align-items-center">
               <div className="header-text mb-2">
@@ -30,23 +35,25 @@ const Login = () => {
                 <p>We are happy you are back!</p>
               </div>
               <div className="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">
-                  <i class="bi bi-person-circle"></i>
+                <span className="input-group-text" id="basic-addon1">
+                  <i className="bi bi-person-circle"></i>
                 </span>
                 <input
                   type="text"
                   className="form-control form-control-lg bg-light fs-6"
                   placeholder="Usename"
+                  onChange={(e) => setUserName(e.target.value)}
                 />
               </div>
               <div className="input-group mb-1">
-                <span class="input-group-text" id="basic-addon1">
-                  <i class="bi bi-lock-fill"></i>
+                <span className="input-group-text" id="basic-addon1">
+                  <i className="bi bi-lock-fill"></i>
                 </span>
                 <input
                   type="password"
                   className="form-control form-control-lg bg-light fs-6"
                   placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="input-group mb-4 d-flex justify-content-between">
@@ -63,14 +70,13 @@ const Login = () => {
                     <small>Remember me</small>
                   </label>
                 </div>
-                <div className="forgot">
-                  <small>
-                    <a href="/">Forgot Password?</a>
-                  </small>
-                </div>
+                <div className="forgot"></div>
               </div>
               <div className="input-group mt-2 mb-1">
-                <button className="btn btn-lg btn btn-outline-primary w-50 fs-6">
+                <button
+                  className="btn btn-lg btn btn-outline-primary w-50 fs-6"
+                  onClick={handleSubmit}
+                >
                   Login
                 </button>
               </div>

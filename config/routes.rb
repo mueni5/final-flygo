@@ -22,25 +22,18 @@ Rails.application.routes.draw do
   #Index airport reviews
   get '/airport_reviews',             to: 'reviews#user_reviews'
   get '/airport/:airport_id/reviews', to:'reviews#user_reviews'
+  
+  # user_signup
+  post '/signup',   to: "users#create"
 
+  # current user
+  get '/me',        to: "users#show"
+  post '/login',    to:"session#create"
+  delete '/logout', to:"session#destroy"
 
   resources :reviews
   resources :users
   resources :flights
   resources :airports
   resources :bookings
-
-
-  # resources :users do
-  #   resources :flights, only: [:index]
-  # end
-
-  # resources :users do
-  #   resources :reviews, only: [:index]
-  # end
-
-  # resources :airports do
-  #   resources :flights, only: [:index]
-  # end
-
 end

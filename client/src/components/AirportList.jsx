@@ -18,7 +18,7 @@ function AirportList() {
       .then(response => response.json())
       .then(data => setAirportFlights(data))
       .catch((error) => alert(error));
-  }, [id, airportFlights]);
+  }, [id]);
 
   
   const flights = airportFlights.map((airportFlight) => {

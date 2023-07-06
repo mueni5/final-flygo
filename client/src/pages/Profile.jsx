@@ -12,7 +12,7 @@ function Profile(){
       <ProfileNav/>
       <Header />
       <CurrentBookings />
-      <PreviousBookings />
+      {/* <PreviousBookings /> */}
       <YourReviews />
       <ReviewsForm />
     </div>

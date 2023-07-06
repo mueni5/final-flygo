@@ -1,9 +1,33 @@
-.container{
-    /* background-color: hwb(199 12% 18%); */
-    margin-top:3%;
-    height: 59vh;
-};
-
+.container {
+    display: grid;
+    place-items: center;
+    width: 180vw;
+    height: 65vh;
+    /* background: linear-gradient(to right, rgb(219, 149, 20), rgb(147, 190, 147), rgba(17, 135, 123, 0.852)); */
+    /* background-color: gray; */
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /* margin: auto; */
+  }
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1px;
+    width: 850px;
+  }
+  .card-header {
+    font-weight: bold;
+    font-size: 150%;
+    padding-bottom: 10px;
+    color: purple;
+  }
+  .card-body {
+    margin-top: 10px;
+  }
+  .table {
+    width: 100%;
+  }
+  /* Additional styles for table rows and cells if needed */
 
 
   

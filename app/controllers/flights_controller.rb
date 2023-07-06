@@ -54,6 +54,7 @@ class FlightsController < ApplicationController
         origin: flight.origin,
         destination: flight.destination,
         date: flight.date,
+        price: flight.price,
         departureTime: flight.departureTime,
         arrivalTime: flight.arrivalTime,
         flight_class: flight.class,
@@ -76,13 +77,13 @@ class FlightsController < ApplicationController
         origin: flight.origin,
         destination: flight.destination,
         date: flight.date,
+        price: flight.price,
         departureTime: flight.departureTime,
         arrivalTime: flight.arrivalTime,
         flight_class: flight.class,
         airport_name: Airport.find(flight.airport_id).name
       }
     end
-
     render json: flights
   end
 
