@@ -28,14 +28,12 @@ class ReviewsController < ApplicationController
     render json: reviews, except: [:airport_name], status: :ok
   end
 
-
+  
 
   def create
-    airport = Airport.find(params[:airport_id])
-    user = User.find(params[:user_id])
-    review  = Review.new(review: params[:review], rating: params[:rating], user:user, airport:airport)
+    airport = Airport.find_by(name: params[:airport_name])
+    review = Review.new(review: params[:review] , rating: params[:rating], user_id: params[:user_id], airport_id:airport.id)
     if review.save
-      review = serialize_review([review])
       render json: review, status: :created
     else
       render json: { error: review.errors.full_messages }, status: :unprocessable_entity
@@ -43,8 +41,11 @@ class ReviewsController < ApplicationController
   end
 
 
+
+
   def update
     review = Review.find(params[:id])
+
     if review.update(review_params)
       render json: review
     else
@@ -53,17 +54,18 @@ class ReviewsController < ApplicationController
   end
 
 
+
   def destroy
     review = Review.find(params[:id])
     review.destroy
-    head :no_content
+    # head :no_content
   end
 
 
   private
   def review_params
     # params.require(:review).permit(:review, :rating, :airport_id, :user_id)
-    params.permit(:review, :rating, :airport_id, :user_id)
+    params.permit(:review, :rating)
   end
 
 

@@ -8,7 +8,7 @@ function BookingItem(){
   return(
     <div>
       <ProfileNav/>
-      <Header />
+      <Header message={"It's time to make a booking."} />
       <Item />
       <Footer />
     </div>

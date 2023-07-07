@@ -17,7 +17,7 @@ class FlightsController < ApplicationController
   
 
   def create
-    flight = Flight.new(airport_params)
+    flight = Flight.new(flight_params)
     if flight.save
       flight = serialize_flight([flight])
       render json: flight, status: :created
@@ -105,6 +105,10 @@ class FlightsController < ApplicationController
 
  
   private
+  def flight_params
+    params.permit(:origin, :destination, :date, :departureTime, :arrivalTime, :flight_class, :price, :airport_id)
+  end
+
   def render_not_found_response
     render json: {error: "Flight not found"}, status: :not_found
   end

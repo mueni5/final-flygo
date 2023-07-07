@@ -28,6 +28,8 @@
 
 
 import React, { useContext } from "react";
+import './Profilenav.css';
+
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 function ProfileNav() {
@@ -62,6 +64,7 @@ function ProfileNav() {
         >
           <NavLink
             to="/"
+            className="profile-nav-link"
             style={{
               textDecoration: "none",
               color: "black",
@@ -73,6 +76,7 @@ function ProfileNav() {
           </NavLink>
           <NavLink
             onClick={() => logout()}
+            className="profile-nav-link"
             style={{
               textDecoration: "none",
               color: "black",

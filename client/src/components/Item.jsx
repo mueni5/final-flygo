@@ -85,6 +85,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from "../context/AuthContext";
 import './Item.css';
+import Spinner from "./Spinner";
 
 const Item = () => {
   const { id } = useParams();
@@ -105,7 +106,7 @@ const Item = () => {
   // useEffect(() => {
   //   console.log(flight);
   // }, [flight]);
-
+  
   const handleBack = () => {
     navigate(-1);
   };
@@ -119,7 +120,7 @@ const Item = () => {
         },
         body: JSON.stringify({
           user_id: currentuser.id,
-          flight_id: flight.flight_id,
+          flight_id: flight.id,
         }),
       })
         .then((response) => response.json())
@@ -129,11 +130,17 @@ const Item = () => {
           navigate("/profile");
         })
         .catch((error) => alert(error.message));
+    }else{
+      navigate('/login');
     }
   };
 
+  // if (!flight) {
+  //   return <div>Loading...</div>;
+  // }
+
   if (!flight) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   return (
@@ -143,7 +150,7 @@ const Item = () => {
         <p>Date: {flight.date}</p>
         <p>Origin: {flight.origin}</p>
         <p>Destination: {flight.destination}</p>
-        <p>Price: {flight.price}</p>
+        <p>Price: ${flight.price}</p>
         <p>Departure Time: {flight.departureTime}</p>
         <p>Arrival Time: {flight.arrivalTime}</p>
         <p>Airport: {flight.airport_name}</p>

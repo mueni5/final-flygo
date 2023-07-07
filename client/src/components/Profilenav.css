@@ -1,0 +1,13 @@
+/* .nav-link {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    margin-right: 10px;
+} */
+
+.profile-nav-link:hover {
+    /* color: red; Specify the color you want on hover */
+    text-decoration: underline;
+    color: white
+    /* background-color: red; */
+}

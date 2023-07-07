@@ -21,6 +21,11 @@
     padding: 10px;
     margin-bottom: 10px;
   }
+
+  .booking-item > p {
+    font-size: 14px;
+    color: #cc2b16;
+  }
   
   .booking-user {
     font-size: 18px;

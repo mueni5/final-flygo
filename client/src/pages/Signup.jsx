@@ -2,6 +2,7 @@ import { useContext } from "react";
 import "./Signup.css";
 import { AuthContext } from "../context/AuthContext";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const { signup } = useContext(AuthContext);
@@ -10,11 +11,16 @@ const Signup = () => {
   const [email, setEmail] = useState();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     signup(first_name, last_name, username, email, password);
   };
+
+  function handleCancel(){
+    navigate("/");
+  }
 
   return (
     <div className="sign-up">
@@ -106,6 +112,12 @@ const Signup = () => {
                   onClick={handleSubmit}
                 >
                   Signup
+                </button>
+                <button
+                  className="btn btn-lg btn btn-outline-primary w-50 fs-6"
+                  onClick={handleCancel}
+                >
+                  Cancel
                 </button>
               </div>
               <div className="row">

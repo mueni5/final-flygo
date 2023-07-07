@@ -1,64 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./List.css";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const List = () => {
-  const [bookings, setBookings] = useState([]);
+const List = ({flights}) => {
+  // const [bookings, setBookings] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Simulating fetching bookings from an API
-    const fetchBookings = async () => {
-      try {
-        // Simulated API response
-        const response = await new Promise(resolve => {
-          setTimeout(() => {
-            const bookingsData = [
-              {
-                id: 1,
-                user: "John Doe",
-                airport: "JKIA"
-              },
-              {
-                id: 2,
-                user: "Christine Mbuvi",
-                airport: "Moi International Airport"
-              },
-              {
-                id: 3,
-                user: "Amos Wanene",
-                airport: "Kisumu International Airport"
-              },
-              {
-                id: 4,
-                user: "Boniface Mabeche",
-                airport: "Eldoret International Airport"
-              }
-            ];
-            resolve(bookingsData);
-          }, 1000); // Simulate delay
-        });
-
-        setBookings(response);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchBookings();
-  }, []);
-   function handleItem(){
-    navigate(`/bookinglist/${1}`)
+  
+   function handleItem(flightId){
+    navigate(`/bookinglist/${flightId}`)
    }
 
   return (
     <div>
       <h2 className="list-title">Booking List</h2>
       <ul className="booking-list">
-        {bookings.map(booking => (
-          <li key={booking.id} className="booking-item" onClick={handleItem}>
-            <h3 className="booking-user">{booking.user}</h3>
-            <p className="booking-airport">{booking.airport}</p>
+        {flights.map(flight => (
+          <li key={flight.id} className="booking-item" onClick={() => handleItem(flight.id)}>
+            <h3 className="booking-user">{flight.airport_name}</h3>
+            <p>{flight.date}</p>
+            <p>{flight.origin}</p>
+            <p>{flight.destination}</p>
+            <p>{flight.flight_class}</p>
+            <p>{flight.price}</p>
           </li>
         ))}
       </ul>
@@ -67,3 +31,52 @@ const List = () => {
 }
 
 export default List;
+
+
+
+
+
+
+
+
+// useEffect(() => {
+//     // Simulating fetching bookings from an API
+//     const fetchBookings = async () => {
+//       try {
+//         // Simulated API response
+//         const response = await new Promise(resolve => {
+//           setTimeout(() => {
+//             const bookingsData = [
+//               {
+//                 id: 1,
+//                 user: "John Doe",
+//                 airport: "JKIA"
+//               },
+//               {
+//                 id: 2,
+//                 user: "Christine Mbuvi",
+//                 airport: "Moi International Airport"
+//               },
+//               {
+//                 id: 3,
+//                 user: "Amos Wanene",
+//                 airport: "Kisumu International Airport"
+//               },
+//               {
+//                 id: 4,
+//                 user: "Boniface Mabeche",
+//                 airport: "Eldoret International Airport"
+//               }
+//             ];
+//             resolve(bookingsData);
+//           }, 1000); // Simulate delay
+//         });
+
+//         setBookings(response);
+//       } catch (error) {
+//         console.log(error);
+//       }
+//     };
+
+//     fetchBookings();
+//   }, []);

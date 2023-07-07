@@ -1,20 +1,23 @@
 .current-bookings {
-  /* display: grid; */
   display: flex;
   flex-direction: row;
-  /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
-  grid-gap: 20px;
-  /* padding: 20px; */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: left;
 }
 
-.current-bookings h1 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 20px;
-}
 
 .current-bookings-header {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 0;
+}
+
+
+.no-flights-message {
+  text-align: center;
+  color: #888;
+  font-size: 18px;
+  padding-top: 20px;
 }

@@ -3,12 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './AirportList.css';
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import Spinner from "./Spinner";
 
 
 function AirportList() {
   const {id} = useParams();
   const [airportFlights, setAirportFlights] = useState([]);
-  // const [flights, setFlights] = useState([]);
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const name = searchParams.get('name');
@@ -37,6 +37,11 @@ function AirportList() {
   function handleBook(id){
     navigate(`/bookinglist/${id}`);
   }
+
+
+  if (!airportFlights) {
+    return <Spinner />;
+  }
   
   // const flight = flight[0];
 
@@ -44,7 +49,7 @@ function AirportList() {
     <div className="container">
       <div className="row">
         <div className="col">
-          <div className="card">
+          <div className="card" style={{minWidth: "100%"}}>
             <div className="card-header">{name}</div>
             <div className="card-body">
               <table className="table">
@@ -82,11 +87,3 @@ function AirportList() {
   );
 };
 export default AirportList;
-
-
- // const flights = [
-  //   { id: 1, airline: 'Emirates', destination: 'Mumbai', time: '10:00 AM' },
-  //   { id: 2, airline: 'Jambo Jet', destination: 'Kisumu', time: '12:00 PM' },
-  //   { id: 3, airline: 'Kenya Airways', destination: 'Tokyo', time: '02:00 PM' },
-  //   { id: 4, airline: 'Condor', destination: 'Berlin', time: '04:00 PM' },
-  // ];

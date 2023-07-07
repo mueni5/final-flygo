@@ -9,7 +9,7 @@ function Airport(){
   return(
     <div className="airport">
       <ProfileNav/>
-      <Header />
+      <Header message={"Take a look at the airport's flight catalogue."}/>
       <AirportList />
       <Footer />
     </div>

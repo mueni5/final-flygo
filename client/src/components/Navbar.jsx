@@ -1,6 +1,8 @@
 // import { NavLink } from "react-router-dom";
 import { HashLink as NavLink } from 'react-router-hash-link';
 import "./Navbar.css";
+import { useContext } from 'react'
+import { AuthContext } from "../context/AuthContext";
 
 // const Navbar = () => {
 //   return (
@@ -72,7 +74,20 @@ import "./Navbar.css";
 
 
 
+  
+
 const Navbar = () => {
+  const {currentuser} = useContext(AuthContext);
+  let profileRoute = '/profile'
+
+  if(currentuser && !currentuser.username){
+    profileRoute = '/login'
+    console.log("success");
+  }else{
+    profileRoute = '/profile'
+  }
+
+
   return (
     <div className="bg-warning">
       <nav className="navbar navbar-expand-lg bg-body-tertiary mb-3 fixed-top">
@@ -124,7 +139,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link active mx-2 mystyle" to="/login">
+                <NavLink className="nav-link active mx-2 mystyle" to={profileRoute}>
                   <i class="bi bi-person-circle"></i>
                 </NavLink>
               </li>

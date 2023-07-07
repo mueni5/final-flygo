@@ -2,14 +2,23 @@ import { useContext } from "react";
 import "./Login.css";
 import { AuthContext } from "../context/AuthContext";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
   const { login } = useContext(AuthContext);
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     login(username, password);
   };
+
+
+  function handleCancel(){
+    navigate("/");
+  }
+
   return (
     <div className="log-in">
       <div className="container d-flex justify-content-center align-items-center min-vh-100">
@@ -78,6 +87,12 @@ const Login = () => {
                   onClick={handleSubmit}
                 >
                   Login
+                </button>
+                <button
+                  className="btn btn-lg btn btn-outline-primary w-50 fs-6"
+                  onClick={handleCancel}
+                >
+                  Cancel
                 </button>
               </div>
               <div className="row">

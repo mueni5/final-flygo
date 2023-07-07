@@ -12,9 +12,9 @@ function AirportSection({id}){
     .then((data) => setAirports(data))
     .catch((error) => alert(error.message))
   }, [])
-                            
+  
   const airportsElements = airports.map((airport)=>{
-      return <AirportCard key={airport.id} id={airport.id} image={airport.image} rating={airport.rating} name={airport.name} />
+      return <AirportCard key={airport.id} id={airport.id} image={airport.image} rating={airport.rating} name={airport.name} contact={airport.contact}/>
   });
   
   return(

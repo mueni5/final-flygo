@@ -7,6 +7,7 @@ function Footer() {
     padding: "20px",
     display: "flex",
     justifyContent: "space-between",
+    color: 'white'
   };
   
   const columnStyle = {

@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   #Index airport reviews
   get '/airport_reviews',             to: 'reviews#user_reviews'
   get '/airport/:airport_id/reviews', to:'reviews#user_reviews'
+
+
+  #Index user bookings
+  get '/user_bookings', to: 'bookings#user_bookings'
   
   # user_signup
   post '/signup',   to: "users#create"

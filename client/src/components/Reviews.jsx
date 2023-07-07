@@ -32,7 +32,7 @@ const Testimonial = ({ imageSrc, name, airport, content, rating, socials }) => {
               starDimension="20px"
               starSpacing="5px"
               numberOfStars={5}
-              starRatedColor='gold'
+              starRatedColor='blue'
             />
             <h4 style={{marginTop: '20px'}}>{airport}</h4>
             <p className="socials">

@@ -100,8 +100,8 @@ airport1 = Airport.create!(name: 'Jomo Kenyatta International Airport', address:
 airport2 = Airport.create!(name: 'Wilson Airport', address: 'Langata Road, Nairobi, Kenya', contact: '+254 20 600000', rating: 4.2, image: './AirportImages/Eldoret2.jpg')
 airport3 = Airport.create!(name: 'Eldoret International Airport', address: 'Eldoret, Kenya', contact: '+254 532 063 000', rating: 4.0, image: './AirportImages/Eldoret.jpg')
 airport4 = Airport.create!(name: 'Moi International Airport', address: 'Mombasa, Kenya', contact: '+254 41 343 1111', rating: 4.1, image: './AirportImages/Moi.jpg')
-airport5 = Airport.create!(name: 'Los Angeles International Airport', address: '1 World Way, Los Angeles, CA 90045', contact: '18002465211', rating: 4.1, image: './AirportImages/LA.jpg')
-airport6 = Airport.create!(name: 'John F. Kennedy International Airport', address: 'Queens, NY 11430', contact: '17182444444', rating: 3.9, image: './AirportImages/JFK.jpg')
+airport5 = Airport.create!(name: 'Los Angeles International Airport', address: '1 World Way, Los Angeles, CA 90045', contact: '+1 8002465211', rating: 4.1, image: './AirportImages/LA.jpg')
+airport6 = Airport.create!(name: 'John F. Kennedy International Airport', address: 'Queens, NY 11430', contact: '+1 182444444', rating: 3.9, image: './AirportImages/JFK.jpg')
 airport7 = Airport.create!(name: 'Heathrow Airport', address: 'Longford, Hounslow TW6, UK', contact: '+44 844 335 1801', rating: 4.5, image: './AirportImages/Heathrow.jpg')
 airport8 = Airport.create!(name: 'Dubai International Airport', address: 'Dubai - United Arab Emirates', contact: '+971 4 224 5555', rating: 4.3, image: './AirportImages/Dubai.jpg')
 
@@ -121,11 +121,11 @@ user9 = User.create!(first_name: 'Amos', last_name: 'Munini', username: 'amosm',
 flight1 = Flight.create!(origin: 'Nairobi', destination: 'New York', date: DateTime.new(2023, 8, 29), departureTime: DateTime.new(2023, 8, 29, 9, 30), arrivalTime: DateTime.new(2023, 8, 29, 18, 00), flight_class: 'Economy', airport: airport5, price: 500.00)
 flight2 = Flight.create!(origin: 'New York', destination: 'Nairobi', date: DateTime.new(2023, 8, 30), departureTime: DateTime.new(2023, 8, 30, 9, 30), arrivalTime: DateTime.new(2023, 8, 30, 18, 00), flight_class: 'Economy', airport: airport6, price: 600.00)
 flight3 = Flight.create!(origin: 'Eldoret', destination: 'London', date: DateTime.new(2023, 9, 1), departureTime: DateTime.new(2023, 9, 1, 11, 00), arrivalTime: DateTime.new(2023, 9, 1, 19, 30), flight_class: 'Business', airport: airport7, price: 1200.00)
-flight4 = Flight.create!(origin: 'London', destination: 'Eldoret', date: DateTime.new(2023, 9, 5), departureTime: DateTime.new(2023, 9, 5, 13, 30), arrivalTime: DateTime.new(2023, 9, 5, 19, 45), flight_class: 'First Class', airport: airport8, price: 2000.00)
+flight4 = Flight.create!(origin: 'London', destination: 'Eldoret', date: DateTime.new(2023, 9, 5), departureTime: DateTime.new(2023, 9, 5, 13, 30), arrivalTime: DateTime.new(2023, 9, 5, 19, 45), flight_class: 'First', airport: airport8, price: 2000.00)
 flight5 = Flight.create!(origin: 'Los Angeles', destination: 'New York', date: DateTime.new(2023, 9, 10), departureTime: DateTime.new(2023, 9, 10, 9, 00), arrivalTime: DateTime.new(2023, 9, 10, 18, 30), flight_class: 'Economy', airport: airport1, price: 400.00)
 flight6 = Flight.create!(origin: 'New York', destination: 'Los Angeles', date: DateTime.new(2023, 9, 15), departureTime: DateTime.new(2023, 9, 15, 10, 00), arrivalTime: DateTime.new(2023, 9, 15, 20, 30), flight_class: 'Business', airport: airport2, price: 800.00)
 flight7 = Flight.create!(origin: 'Mombasa', destination: 'Dubai', date: DateTime.new(2023, 9, 18), departureTime: DateTime.new(2023, 9, 18, 12, 00), arrivalTime: DateTime.new(2023, 9, 18, 20, 00), flight_class: 'Economy', airport: airport4, price: 700.00)
-flight8 = Flight.create!(origin: 'Dubai', destination: 'Mombasa', date: DateTime.new(2023, 9, 22), departureTime: DateTime.new(2023, 9, 22, 9, 30), arrivalTime: DateTime.new(2023, 9, 22, 18, 00), flight_class: 'First Class', airport: airport3, price: 1500.00)
+flight8 = Flight.create!(origin: 'Dubai', destination: 'Mombasa', date: DateTime.new(2023, 9, 22), departureTime: DateTime.new(2023, 9, 22, 9, 30), arrivalTime: DateTime.new(2023, 9, 22, 18, 00), flight_class: 'First', airport: airport3, price: 1500.00)
 flight9 = Flight.create!(origin: 'London', destination: 'New York', date: DateTime.new(2023, 9, 25), departureTime: DateTime.new(2023, 9, 25, 14, 00), arrivalTime: DateTime.new(2023, 9, 25, 20, 00), flight_class: 'Business', airport: airport7, price: 1100.00)
 flight10 = Flight.create!(origin: 'Dubai', destination: 'London', date: DateTime.new(2023, 9, 30), departureTime: DateTime.new(2023, 9, 30, 12, 30), arrivalTime: DateTime.new(2023, 9, 30, 18, 30), flight_class: 'Economy', airport: airport8, price: 900.00)
 flight11 = Flight.create!(origin: 'Nairobi', destination: 'Eldoret', date: DateTime.new(2023, 9, 5), departureTime: DateTime.new(2023, 9, 5, 9, 30), arrivalTime: DateTime.new(2023, 9, 5, 11, 00), flight_class: 'Economy', airport: airport1, price: 120.00)
@@ -138,8 +138,8 @@ flight17 = Flight.create!(origin: 'Mombasa', destination: 'Eldoret', date: DateT
 flight18 = Flight.create!(origin: 'Eldoret', destination: 'Mombasa', date: DateTime.new(2023, 9, 12), departureTime: DateTime.new(2023, 9, 12, 10, 30), arrivalTime: DateTime.new(2023, 9, 12, 13, 00), flight_class: 'Business', airport: airport3, price: 180.00)
 flight19 = Flight.create!(origin: 'Nairobi', destination: 'Mombasa', date: DateTime.new(2023, 9, 13), departureTime: DateTime.new(2023, 9, 13, 8, 30), arrivalTime: DateTime.new(2023, 9, 13, 10, 30), flight_class: 'Economy', airport: airport2, price: 160.00)
 flight20 = Flight.create!(origin: 'Mombasa', destination: 'Nairobi', date: DateTime.new(2023, 9, 14), departureTime: DateTime.new(2023, 9, 14, 8, 30), arrivalTime: DateTime.new(2023, 9, 14, 10, 30), flight_class: 'Economy', airport: airport4, price: 160.00)
-flight21 = Flight.create!(origin: 'Eldoret', destination: 'Nairobi', date: DateTime.new(2023, 9, 15), departureTime: DateTime.new(2023, 9, 15, 9, 00), arrivalTime: DateTime.new(2023, 9, 15, 11, 00), flight_class: 'First Class', airport: airport3, price: 210.00)
-flight22 = Flight.create!(origin: 'Nairobi', destination: 'Eldoret', date: DateTime.new(2023, 9, 16), departureTime: DateTime.new(2023, 9, 16, 9, 00), arrivalTime: DateTime.new(2023, 9, 16, 11, 00), flight_class: 'First Class', airport: airport1, price: 210.00)
+flight21 = Flight.create!(origin: 'Eldoret', destination: 'Nairobi', date: DateTime.new(2023, 9, 15), departureTime: DateTime.new(2023, 9, 15, 9, 00), arrivalTime: DateTime.new(2023, 9, 15, 11, 00), flight_class: 'First', airport: airport3, price: 210.00)
+flight22 = Flight.create!(origin: 'Nairobi', destination: 'Eldoret', date: DateTime.new(2023, 9, 16), departureTime: DateTime.new(2023, 9, 16, 9, 00), arrivalTime: DateTime.new(2023, 9, 16, 11, 00), flight_class: 'First', airport: airport1, price: 210.00)
 
 
 # Create some bookings
